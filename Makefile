@@ -35,6 +35,8 @@ release:
 	-docker push $(IMAGE):alpine
 	-docker push $(IMAGE):$(VERSION)
 	-docker push $(IMAGE):latest
+	-docker push $(IMAGE):$(VERSION)-armhf
+	-docker push $(IMAGE):armhf
 
 clean:
 	-docker rm -f mackerel-agent-ubuntu
