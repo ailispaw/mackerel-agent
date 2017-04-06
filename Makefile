@@ -35,4 +35,4 @@ release:
 clean:
 	-docker rm -f mackerel-agent-ubuntu
 
-.PHONY: barge mackerel-agent-ubuntu ubuntu alpine vagrant clean
+.PHONY: barge ubuntu alpine vagrant clean
