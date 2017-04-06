@@ -23,6 +23,10 @@ alpine: alpine/Dockerfile
 	docker build -t $(IMAGE):$@ $@
 	docker tag $(IMAGE):$@ $(IMAGE):$(VERSION)-$@
 
+armhf: armhf/Dockerfile
+	docker build -t $(IMAGE):$@ $@
+	docker tag $(IMAGE):$@ $(IMAGE):$(VERSION)-$@
+
 vagrant:
 	vagrant up --no-provision
 
@@ -35,4 +39,4 @@ release:
 clean:
 	-docker rm -f mackerel-agent-ubuntu
 
-.PHONY: barge ubuntu alpine vagrant clean
+.PHONY: barge ubuntu alpine armhf vagrant clean
