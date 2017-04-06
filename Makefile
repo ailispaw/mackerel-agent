@@ -38,5 +38,6 @@ release:
 
 clean:
 	-docker rm -f mackerel-agent-ubuntu
+	-$(RM) barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mkr
 
 .PHONY: barge ubuntu alpine armhf vagrant clean
