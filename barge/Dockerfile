@@ -1,7 +1,4 @@
-FROM scratch
-
-ADD rootfs.tar.xz /
-RUN rm -rf /lib/modules /lib/firmware
+FROM ailispaw/barge:docker
 
 COPY mackerel-agent /usr/bin/mackerel-agent
 COPY mackerel-agent.conf /etc/mackerel-agent/mackerel-agent.conf
