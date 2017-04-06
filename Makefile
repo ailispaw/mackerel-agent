@@ -1,5 +1,5 @@
 IMAGE   := ailispaw/mackerel-agent
-VERSION := 0.41.3
+VERSION := 0.42.0
 BARGE   := 2.4.4
 
 barge: barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mkr
