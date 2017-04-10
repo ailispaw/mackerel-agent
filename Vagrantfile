@@ -19,7 +19,16 @@ Vagrant.configure(2) do |config|
     sh.inline = <<-EOT
       mkdir -p /opt/mackerel-agent
       cp /vagrant/mackerel-agent.conf /opt/mackerel-agent/mackerel-agent.conf
+      cp /vagrant/mackerel-check-container.sh /opt/mackerel-agent/mackerel-check-container.sh
     EOT
+  end
+
+  config.vm.provision :docker do |docker|
+    docker.pull_images "busybox"
+    docker.run "hello",
+      image: "busybox",
+      args: "-p 8080:8080 -v /usr/bin/dumb-init:/dumb-init:ro --entrypoint=/dumb-init",
+      cmd: "nc -p 8080 -l -l -e echo hello world!"
   end
 
   config.vm.provision :docker do |docker|
