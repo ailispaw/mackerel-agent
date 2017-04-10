@@ -20,6 +20,7 @@ Vagrant.configure(2) do |config|
       mkdir -p /opt/mackerel-agent
       cp /vagrant/mackerel-agent.conf /opt/mackerel-agent/mackerel-agent.conf
       cp /vagrant/mackerel-check-container.sh /opt/mackerel-agent/mackerel-check-container.sh
+      cp /vagrant/mackerel-check-containers.sh /opt/mackerel-agent/mackerel-check-containers.sh
     EOT
   end
 
