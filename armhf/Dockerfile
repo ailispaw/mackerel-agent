@@ -43,6 +43,25 @@ RUN set -e && \
     rm -rf /usr/lib/go && \
     rm -rf "${GOPATH}"
 
+# Build mackerel-check
+ENV CHECK_VERSION="0.10.0"
+RUN set -e && \
+    apk --no-cache --update add --virtual build-deps git go build-base && \
+
+    mkdir -p "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    cd "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    git clone --depth 1 --branch v${CHECK_VERSION} https://github.com/mackerelio/go-check-plugins && \
+    cd go-check-plugins && \
+    make deps && \
+    go build -o /usr/bin/mackerel-check \
+      -ldflags="-w -s \
+        -X main.version=${CHECK_VERSION} \
+        -X main.gitcommit=`git rev-parse --short HEAD`" && \
+
+    apk del build-deps && \
+    rm -rf /usr/lib/go && \
+    rm -rf "${GOPATH}"
+
 # Build mkr
 ENV MKR_VERSION="0.15.0"
 RUN set -e && \

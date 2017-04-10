@@ -2,11 +2,12 @@ IMAGE   := ailispaw/mackerel-agent
 VERSION := 0.42.0
 BARGE   := 2.4.4
 
-barge: barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mkr
+barge: barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mackerel-check \
+		barge/mkr
 	docker build -t $(IMAGE) $@
 	docker tag $(IMAGE) $(IMAGE):$(VERSION)
 
-barge/mackerel-agent barge/mackerel-plugin barge/mkr: | ubuntu
+barge/mackerel-agent barge/mackerel-plugin barge/mackerel-check barge/mkr: | ubuntu
 	docker create --name mackerel-agent-ubuntu $(IMAGE):ubuntu
 	docker cp mackerel-agent-ubuntu:/usr/bin/$(@F) $@
 	docker rm mackerel-agent-ubuntu
@@ -40,6 +41,7 @@ release:
 
 clean:
 	-docker rm -f mackerel-agent-ubuntu
-	-$(RM) barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mkr
+	-$(RM) barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mackerel-check \
+		barge/mkr
 
 .PHONY: barge ubuntu alpine armhf vagrant clean
