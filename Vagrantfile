@@ -31,7 +31,8 @@ Vagrant.configure(2) do |config|
         "-v /var/run/docker.sock:/var/run/docker.sock",
         "-v /opt/mackerel-agent/:/var/lib/mackerel-agent/",
         "-v /opt/mackerel-agent/mackerel-agent.conf:/etc/mackerel-agent/mackerel-agent.conf"
-      ].join(" ")
+      ].join(" "),
+      cmd: "mackerel-agent -v"
   end
 
   if Vagrant.has_plugin?("vagrant-triggers") then
