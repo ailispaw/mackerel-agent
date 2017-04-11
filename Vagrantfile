@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
     docker.run "mackerel-agent",
       image: "ailispaw/mackerel-agent",
       args: [
-        "-h barge",
+        "--net host",
         "-v /var/run/docker.sock:/var/run/docker.sock",
         "-v /opt/mackerel-agent/:/var/lib/mackerel-agent/",
         "-v /opt/mackerel-agent/mackerel-agent.conf:/etc/mackerel-agent/mackerel-agent.conf"
