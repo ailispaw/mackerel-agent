@@ -15,7 +15,7 @@ RUN mkdir -p ${GOROOT} && \
       | tar xvzf - -C ${GOROOT} --strip-components=1
 
 # Build mackerel-agent
-ENV AGENT_VERSION="0.43.0"
+ENV AGENT_VERSION="0.43.1"
 RUN mkdir -p "${GOPATH}/src/github.com/github.com/mackerelio/" && \
     cd "${GOPATH}/src/github.com/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${AGENT_VERSION} https://github.com/mackerelio/mackerel-agent && \
