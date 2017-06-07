@@ -25,7 +25,7 @@ RUN set -e && \
     rm -rf "${GOPATH}"
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.27.1"
+ENV PLUGIN_VERSION="0.27.2"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
@@ -44,7 +44,7 @@ RUN set -e && \
     rm -rf "${GOPATH}"
 
 # Build mkr
-ENV MKR_VERSION="0.16.0"
+ENV MKR_VERSION="0.16.1"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
