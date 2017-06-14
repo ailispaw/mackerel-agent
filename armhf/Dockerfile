@@ -26,13 +26,13 @@ RUN set -e && \
     rm -rf /tmp/* /var/cache/apk/*
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.31.0"
+ENV PLUGIN_VERSION="0.31.0-prometheus"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
     mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     cd "${GOPATH}/src/github.com/mackerelio/" && \
-    git clone --depth 1 --branch v${PLUGIN_VERSION} https://github.com/mackerelio/mackerel-agent-plugins && \
+    git clone --depth 1 --branch prometheus https://github.com/ailispaw/mackerel-agent-plugins && \
     cd mackerel-agent-plugins && \
     make deps && \
     go build -o /usr/bin/mackerel-plugin \

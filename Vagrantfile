@@ -23,11 +23,12 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision :docker do |docker|
-    docker.pull_images "ailispaw/mackerel-agent"
+    docker.pull_images "ailispaw/mackerel-agent:prometheus"
     docker.run "mackerel-agent",
-      image: "ailispaw/mackerel-agent",
+      image: "ailispaw/mackerel-agent:prometheus",
       args: [
         "--net host",
+        "--env-file /vagrant/.env",
         "-v /var/run/docker.sock:/var/run/docker.sock",
         "-v /opt/mackerel-agent/:/var/lib/mackerel-agent/",
         "-v /opt/mackerel-agent/mackerel-agent.conf:/etc/mackerel-agent/mackerel-agent.conf"
