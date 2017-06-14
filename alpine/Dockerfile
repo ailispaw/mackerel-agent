@@ -7,8 +7,8 @@ ENV AGENT_VERSION="0.43.2"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
-    mkdir -p "${GOPATH}/src/github.com/github.com/mackerelio/" && \
-    cd "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
+    cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${AGENT_VERSION} https://github.com/mackerelio/mackerel-agent && \
     cd mackerel-agent && \
     make deps && \
@@ -29,8 +29,8 @@ ENV PLUGIN_VERSION="0.28.0"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
-    mkdir -p "${GOPATH}/src/github.com/github.com/mackerelio/" && \
-    cd "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
+    cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${PLUGIN_VERSION} https://github.com/mackerelio/mackerel-agent-plugins && \
     cd mackerel-agent-plugins && \
     make deps && \
@@ -48,8 +48,8 @@ ENV MKR_VERSION="0.16.1"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
-    mkdir -p "${GOPATH}/src/github.com/github.com/mackerelio/" && \
-    cd "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
+    cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${MKR_VERSION} https://github.com/mackerelio/mkr && \
     cd mkr && \
     make deps && \
