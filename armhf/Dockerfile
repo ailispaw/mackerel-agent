@@ -3,7 +3,7 @@ FROM armhf/alpine:3.5
 ENV GOPATH="/tmp/go"
 
 # Build mackerel-agent
-ENV AGENT_VERSION="0.43.2"
+ENV AGENT_VERSION="0.44.0"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
@@ -25,7 +25,7 @@ RUN set -e && \
     rm -rf "${GOPATH}"
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.28.0"
+ENV PLUGIN_VERSION="0.29.0"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
