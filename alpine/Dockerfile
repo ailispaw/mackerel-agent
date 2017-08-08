@@ -25,7 +25,7 @@ RUN set -e && \
     rm -rf "${GOPATH}"
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.29.0"
+ENV PLUGIN_VERSION="0.29.1"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
