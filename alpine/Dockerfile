@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 ENV GOPATH="/tmp/go"
 
@@ -22,7 +22,8 @@ RUN set -e && \
 
     apk del build-deps && \
     rm -rf /usr/lib/go && \
-    rm -rf "${GOPATH}"
+    rm -rf "${GOPATH}" && \
+    rm -rf /tmp/* /var/cache/apk/*
 
 # Build mackerel-plugin
 ENV PLUGIN_VERSION="0.30.0"
@@ -41,7 +42,8 @@ RUN set -e && \
 
     apk del build-deps && \
     rm -rf /usr/lib/go && \
-    rm -rf "${GOPATH}"
+    rm -rf "${GOPATH}" && \
+    rm -rf /tmp/* /var/cache/apk/*
 
 # Build mkr
 ENV MKR_VERSION="0.17.0"
@@ -59,12 +61,14 @@ RUN set -e && \
 
     apk del build-deps && \
     rm -rf /usr/lib/go && \
-    rm -rf "${GOPATH}"
+    rm -rf "${GOPATH}" && \
+    rm -rf /tmp/* /var/cache/apk/*
 
 RUN set -e && \
     apk --no-cache --update add ca-certificates docker && \
     cp /usr/bin/docker /usr/bin/docker.org && \
     apk del docker && \
-    mv /usr/bin/docker.org /usr/bin/docker
+    mv /usr/bin/docker.org /usr/bin/docker && \
+    rm -rf /tmp/* /var/cache/apk/*
 
 CMD [ "mackerel-agent" ]

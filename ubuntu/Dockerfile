@@ -5,7 +5,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -q -y install --no-install-recommends curl ca-certificates git make build-essential && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV GOVERSION=1.7.6 \
+ENV GOVERSION=1.8.3 \
     GOROOT=/goroot \
     GOPATH=/gopath
 ENV PATH ${PATH}:${GOROOT}/bin:${GOPATH}/bin
