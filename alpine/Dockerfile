@@ -3,7 +3,7 @@ FROM alpine:3.5
 ENV GOPATH="/tmp/go"
 
 # Build mackerel-agent
-ENV AGENT_VERSION="0.44.0"
+ENV AGENT_VERSION="0.44.1"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
@@ -25,7 +25,7 @@ RUN set -e && \
     rm -rf "${GOPATH}"
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.29.1"
+ENV PLUGIN_VERSION="0.30.0"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
@@ -44,7 +44,7 @@ RUN set -e && \
     rm -rf "${GOPATH}"
 
 # Build mkr
-ENV MKR_VERSION="0.16.1"
+ENV MKR_VERSION="0.17.0"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
