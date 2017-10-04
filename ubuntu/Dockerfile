@@ -15,7 +15,7 @@ RUN mkdir -p ${GOROOT} && \
       | tar xvzf - -C ${GOROOT} --strip-components=1
 
 # Build mackerel-agent
-ENV AGENT_VERSION="0.45.0"
+ENV AGENT_VERSION="0.46.0"
 RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${AGENT_VERSION} https://github.com/mackerelio/mackerel-agent && \
@@ -32,7 +32,7 @@ RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     rm -rf "${GOPATH}"
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.34.0"
+ENV PLUGIN_VERSION="0.35.0"
 RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${PLUGIN_VERSION} https://github.com/mackerelio/mackerel-agent-plugins && \
@@ -46,7 +46,7 @@ RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     rm -rf "${GOPATH}"
 
 # Build mkr
-ENV MKR_VERSION="0.20.0"
+ENV MKR_VERSION="0.21.0"
 RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${MKR_VERSION} https://github.com/mackerelio/mkr && \
