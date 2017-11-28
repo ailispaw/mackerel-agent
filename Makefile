@@ -1,5 +1,5 @@
 IMAGE   := ailispaw/mackerel-agent
-VERSION := 0.47.2
+VERSION := 0.47.3
 
 barge: barge/mackerel-agent barge/mackerel-agent.conf barge/mackerel-plugin barge/mkr
 	docker build -t $(IMAGE) $@
