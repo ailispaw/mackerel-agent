@@ -32,7 +32,7 @@ RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     rm -rf "${GOPATH}"
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.41.0"
+ENV PLUGIN_VERSION="0.41.1"
 RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
     cd "${GOPATH}/src/github.com/mackerelio/" && \
     git clone --depth 1 --branch v${PLUGIN_VERSION} https://github.com/mackerelio/mackerel-agent-plugins && \

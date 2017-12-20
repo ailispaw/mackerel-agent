@@ -26,7 +26,7 @@ RUN set -e && \
     rm -rf /tmp/* /var/cache/apk/*
 
 # Build mackerel-plugin
-ENV PLUGIN_VERSION="0.41.0"
+ENV PLUGIN_VERSION="0.41.1"
 RUN set -e && \
     apk --no-cache --update add --virtual build-deps git go build-base && \
 
