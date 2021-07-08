@@ -4,4 +4,5 @@ barge/rootfs.tar.xz
 barge/mackerel-agent
 barge/mackerel-agent.conf
 barge/mackerel-plugin
+barge/mackerel-check
 barge/mkr

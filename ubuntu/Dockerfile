@@ -45,6 +45,20 @@ RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
 
     rm -rf "${GOPATH}"
 
+# Build mackerel-check
+ENV CHECK_VERSION="0.10.0"
+RUN mkdir -p "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    cd "${GOPATH}/src/github.com/github.com/mackerelio/" && \
+    git clone --depth 1 --branch v${CHECK_VERSION} https://github.com/mackerelio/go-check-plugins && \
+    cd go-check-plugins && \
+    make deps && \
+    go build -o /usr/bin/mackerel-check \
+      -ldflags="-w -s \
+        -X main.version=${CHECK_VERSION} \
+        -X main.gitcommit=`git rev-parse --short HEAD`" && \
+
+    rm -rf "${GOPATH}"
+
 # Build mkr
 ENV MKR_VERSION="0.24.1"
 RUN mkdir -p "${GOPATH}/src/github.com/mackerelio/" && \
